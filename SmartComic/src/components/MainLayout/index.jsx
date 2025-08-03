@@ -9,7 +9,7 @@ import {
     HomeO,
     UserO,
     BarChartO,
-    Records,
+    CalendarO,
     ServiceO
 } from '@react-vant/icons';
 import {
@@ -17,12 +17,12 @@ import {
     useNavigate,
     useLocation
 } from 'react-router-dom'
-
+import './mainLayout.module.css';
 
 //菜单栏配置
 const tabs = [
     { icon: <HomeO />, title: '首页', path: '/home'},
-    { icon: <Records />, title: '排期表', path: '/schedule'},
+    { icon: <CalendarO  />, title: '排期表', path: '/schedule'},
     { icon: <ServiceO />, title: '动漫精灵', path: '/anigenie'},
     { icon: <BarChartO />, title: '排行榜', path: '/rankings'},
     { icon: <UserO />, title: '我的', path: '/profile'}
@@ -72,6 +72,7 @@ const MainLayout = () => {
                     <Tabbar.Item 
                         key={index} 
                         icon={tab.icon}
+                        className="tabbar-item"
                         style={{
                             fontSize: '12px',
                             color: active === index ? '#07c160' : '#7f7f7f'

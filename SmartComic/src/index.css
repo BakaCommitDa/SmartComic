@@ -1,0 +1,84 @@
+/* 移动端字体适配 */
+
+/* 基础字体大小调整 */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px; /* 增加基础字体大小 */
+    }
+    
+    /* 标题字体 */
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 1.2em; /* 相对字体大小 */
+    }
+    
+    /* 段落文字 */
+    p {
+        font-size: 1.1em; /* 相对字体大小 */
+        line-height: 1.6;
+    }
+    
+    /* 按钮文字 */
+    button {
+        font-size: 1.1em;
+    }
+    
+    /* 输入框文字 */
+    input, textarea {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 15px; /* 小屏幕基础字体大小 */
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 1.15em;
+    }
+    
+    p {
+        font-size: 1.05em;
+        line-height: 1.5;
+    }
+    
+    button {
+        font-size: 1.05em;
+    }
+    
+    input, textarea {
+        font-size: 1.05em;
+    }
+}
+
+@media (max-width: 375px) {
+    body {
+        font-size: 14px; /* 超小屏幕基础字体大小 */
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 1.1em;
+    }
+    
+    p {
+        font-size: 1em;
+        line-height: 1.4;
+    }
+    
+    button {
+        font-size: 1em;
+    }
+    
+    input, textarea {
+        font-size: 1em;
+    }
+}
+
+/* 确保文字在移动端清晰可读 */
+@media (max-width: 768px) {
+    * {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+}
