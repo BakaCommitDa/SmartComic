@@ -1,0 +1,308 @@
+.chatContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #f7f8fa;
+    position: relative;
+}
+
+.chatArea {
+    height: calc(100vh - 140px); /* 增加预留空间，确保不被遮挡 */
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-bottom: 20px; /* 减少底部间距，因为已经用calc计算了高度 */
+    background-color: #f7f8fa;
+}
+
+.messageContainer {
+    display: flex;
+    margin-bottom: 8px;
+}
+
+.userMessage {
+    justify-content: flex-end;
+}
+
+.assistantMessage {
+    justify-content: flex-start;
+}
+
+.messageBubble {
+    max-width: 70%;
+    padding: 12px 16px;
+    border-radius: 18px;
+    word-wrap: break-word;
+    line-height: 1.5;
+    font-size: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.userMessage .messageBubble {
+    background-color: #4a90e2; /* 与rgba(180, 207, 246, 1)相似的蓝色 */
+    color: white;
+    border-bottom-right-radius: 6px;
+}
+
+.assistantMessage .messageBubble {
+    background-color: white;
+    color: #333;
+    border: 1px solid #e5e5e5;
+    border-bottom-left-radius: 6px;
+}
+
+.inputArea {
+    position: fixed;
+    bottom: 70px; /* 再往上移动10px，总共距离导航栏20px */
+    left: 0;
+    right: 0;
+    background-color: white;
+    border-top: 1px solid #ddd;
+    padding: 8px 16px;
+    z-index: 1001;
+    box-sizing: border-box;
+}
+
+.inputContainer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #f8f9fa;
+    border-radius: 20px;
+    padding: 8px 12px; /* 增加上下padding */
+    border: 1px solid #e9ecef;
+    min-height: 48px; /* 增加最小高度 */
+}
+
+.input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 18px; /* 增加字体大小 */
+    line-height: 1.4;
+    max-height: 100px;
+    resize: none;
+    padding: 10px 0; /* 增加上下padding */
+    min-height: 24px; /* 增加最小高度 */
+}
+
+.input::placeholder {
+    color: #6c757d;
+    font-size: 22px; /* 与输入字体大小保持一致 */
+}
+
+.sendButton {
+    background-color: #007AFF;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    min-width: 60px;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.sendButton:hover {
+    background-color: #0056b3;
+}
+
+.sendButton:disabled {
+    background-color: #f5f7fa; /* 更柔和的浅灰色背景 */
+    color: #8e9aaf; /* 优雅的蓝灰色文字 */
+    cursor: not-allowed;
+    border: 1px solid #e1e5e9; /* 添加边框 */
+}
+
+.typingIndicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 16px;
+    background-color: white;
+    border-radius: 16px;
+    border: 1px solid #e5e5e5;
+    max-width: 50px;
+    margin-bottom: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.typingIndicator span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+.typingIndicator span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.typingIndicator span:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.typingIndicator span:nth-child(3) {
+    animation-delay: 1s;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(0.8);
+        opacity: 0.4;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .chatArea {
+        height: calc(100vh - 130px); /* 移动端增加预留空间 */
+        padding: 12px;
+        gap: 10px;
+        padding-bottom: 20px; /* 减少底部间距 */
+    }
+    
+    .messageBubble {
+        max-width: 90%;
+        padding: 16px 20px;
+        font-size: 18px;
+        line-height: 1.5;
+    }
+    
+    .inputArea {
+        padding: 8px 12px; /* 增加上下padding */
+        bottom: 90px; /* 移动端再往上移动10px */
+    }
+    
+    .inputContainer {
+        padding: 16px 12px; /* 增加上下padding */
+        border-radius: 18px;
+        min-height: 64px; /* 增加最小高度 */
+    }
+    
+    .input {
+        font-size: 22px; /* 进一步增加移动端字体大小 */
+        padding: 8px 0; /* 减少上下padding */
+        min-height: 40px; /* 增加最小高度 */
+        line-height: 1.2; /* 调整行高 */
+    }
+    
+    .input::placeholder {
+        font-size: 22px; /* 进一步增加移动端占位符字体大小 */
+        line-height: 1.2; /* 调整行高 */
+    }
+    
+    .sendButton {
+        padding: 14px 20px; /* 进一步增加padding */
+        font-size: 16px;
+        min-width: 80px;
+        height: 48px; /* 进一步增加高度 */
+    }
+}
+
+/* 小屏幕适配 */
+@media (max-width: 480px) {
+    .chatArea {
+        height: calc(100vh - 125px); /* 小屏幕增加预留空间 */
+        padding: 10px;
+        gap: 8px;
+        padding-bottom: 20px; /* 减少底部间距 */
+    }
+    
+    .messageBubble {
+        max-width: 95%;
+        padding: 14px 18px;
+        font-size: 17px;
+        line-height: 1.5;
+    }
+    
+    .inputArea {
+        padding: 6px 10px; /* 增加上下padding */
+        bottom: 90px; /* 移动端再往上移动10px */
+    }
+    
+    .inputContainer {
+        padding: 14px 10px; /* 增加上下padding */
+        border-radius: 16px;
+        min-height: 60px; /* 增加最小高度 */
+    }
+    
+    .input {
+        font-size: 21px; /* 进一步增加小屏幕字体大小 */
+        padding: 6px 0; /* 减少上下padding */
+        min-height: 36px; /* 增加最小高度 */
+        line-height: 1.2; /* 调整行高 */
+    }
+    
+    .input::placeholder {
+        font-size: 21px; /* 进一步增加小屏幕占位符字体大小 */
+        line-height: 1.2; /* 调整行高 */
+    }
+    
+    .sendButton {
+        padding: 12px 18px; /* 进一步增加padding */
+        font-size: 15px;
+        min-width: 75px;
+        height: 44px; /* 进一步增加高度 */
+    }
+}
+
+/* 超小屏幕适配 */
+@media (max-width: 375px) {
+    .chatArea {
+        height: calc(100vh - 120px); /* 超小屏幕增加预留空间 */
+        padding: 8px;
+        gap: 6px;
+        padding-bottom: 20px; /* 减少底部间距 */
+    }
+    
+    .messageBubble {
+        max-width: 96%;
+        padding: 12px 16px;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+    
+    .inputArea {
+        padding: 5px 8px; /* 增加上下padding */
+        bottom: 90px; /* 移动端再往上移动10px */
+    }
+    
+    .inputContainer {
+        padding: 12px 8px; /* 增加上下padding */
+        border-radius: 14px;
+        min-height: 56px; /* 增加最小高度 */
+    }
+    
+    .input {
+        font-size: 20px; /* 进一步增加超小屏幕字体大小 */
+        padding: 4px 0; /* 减少上下padding */
+        min-height: 32px; /* 增加最小高度 */
+        line-height: 1.2; /* 调整行高 */
+    }
+    
+    .input::placeholder {
+        font-size: 20px; /* 进一步增加超小屏幕占位符字体大小 */
+        line-height: 1.2; /* 调整行高 */
+    }
+    
+    .sendButton {
+        padding: 11px 16px; /* 进一步增加padding */
+        font-size: 14px;
+        min-width: 70px;
+        height: 40px; /* 进一步增加高度 */
+    }
+}

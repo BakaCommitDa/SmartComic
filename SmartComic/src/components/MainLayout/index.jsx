@@ -7,25 +7,26 @@ import {
 } from 'react-vant';
 import {
     HomeO,
-    FriendsO,
     UserO,
     BarChartO,
-    Records
+    Records,
+    ServiceO
 } from '@react-vant/icons';
 import {
     Outlet,
     useNavigate,
     useLocation
 } from 'react-router-dom'
-import LottieAnimation from '@/components/Lottie/LottieAnimation';
+
 
 //菜单栏配置
 const tabs = [
     { icon: <HomeO />, title: '首页', path: '/home'},
-    { icon: <Records  />, title: '排期表', path: '/schedule'},
-    { icon: <LottieAnimation path="/lottie/ai-animation.json" width={80} height={80} />, title: '动漫精灵', path: '/anigenie'},
-    { icon: <BarChartO  />, title: '排行榜', path: '/rankings'},
+    { icon: <Records />, title: '排期表', path: '/schedule'},
+    { icon: <ServiceO />, title: '动漫精灵', path: '/anigenie'},
+    { icon: <BarChartO />, title: '排行榜', path: '/rankings'},
     { icon: <UserO />, title: '我的', path: '/profile'}
+
 ]
 
 const MainLayout = () => {
@@ -42,7 +43,6 @@ const MainLayout = () => {
     return (
         <div 
             className="flex flex-col h-screen"
-            style={{paddingBottom: '50px'}}
         >
             <div className="flex-1">
                 <Outlet />
@@ -50,21 +50,32 @@ const MainLayout = () => {
             {/* tabbar */}
             <Tabbar 
                 value={active} 
-                onChange={
-                    (key) => { 
-                        setActive(key);
-                        navigate(tabs[key].path);
-                }
-                }
-                style={{
-                    backgroundColor: 'skyblue',
-                    borderTop: '1px solid red'
+                onChange={(key) => { 
+                    setActive(key);
+                    navigate(tabs[key].path);
                 }}
+                style={{
+                    backgroundColor: '#f7f7f7',
+                    borderTop: '1px solid #e5e5e5',
+                    height: '50px',
+                    minHeight: '50px',
+                    position: 'fixed',
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    zIndex: 1000
+                }}
+                activeColor="#07c160"
+                inactiveColor="#7f7f7f"
             >
                 {tabs.map((tab, index) => (
                     <Tabbar.Item 
                         key={index} 
                         icon={tab.icon}
+                        style={{
+                            fontSize: '12px',
+                            color: active === index ? '#07c160' : '#7f7f7f'
+                        }}
                     > 
                     {tab.title}
                     </Tabbar.Item>

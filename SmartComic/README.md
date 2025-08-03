@@ -30,8 +30,8 @@
 ## 开发前的准备
 - 安装的包
     react-router-dom  zustand axios
-    react-vant(UI组件库) lib-flexible(移动端适配库)  mockjs(生成随机数据并模拟 Ajax 请求响应的JavaScript库)  vite-plugin-mock(vite-plugin-mock)       lottie-web(动画)
-    (pnpm i react-router-dom zustand axios react-vant lib-flexible @react-vant/icons mockjs vite-plugin-mock lottie-web)
+    react-vant(UI组件库) lib-flexible(移动端适配库)  mockjs(生成随机数据并模拟 Ajax 请求响应的JavaScript库)  vite-plugin-mock(vite-plugin-mock)      
+    (pnpm i react-router-dom zustand axios react-vant lib-flexible @react-vant/icons mockjs vite-plugin-mock )
     开发期间的依赖(加-D 开发期间使用)
     vite-plugin-mock  jwt 
     (pnpm i -D vite-plugin-mock jwt)
