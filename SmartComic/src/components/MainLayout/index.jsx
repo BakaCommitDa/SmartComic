@@ -17,7 +17,7 @@ import {
     useNavigate,
     useLocation
 } from 'react-router-dom'
-import './mainLayout.module.css';
+import styles from './mainLayout.module.css';
 
 //菜单栏配置
 const tabs = [
@@ -41,10 +41,8 @@ const MainLayout = () => {
         setActive(index)
     }, [])
     return (
-        <div 
-            className="flex flex-col h-screen"
-        >
-            <div className="flex-1">
+        <div className={styles.container}>
+            <div className={styles.content}>
                 <Outlet />
             </div>
             {/* tabbar */}
@@ -65,7 +63,7 @@ const MainLayout = () => {
                     right: 0,
                     zIndex: 1000
                 }}
-                activeColor="#07c160"
+                activeColor="#00b894"
                 inactiveColor="#7f7f7f"
             >
                 {tabs.map((tab, index) => (
@@ -75,7 +73,7 @@ const MainLayout = () => {
                         className="tabbar-item"
                         style={{
                             fontSize: '12px',
-                            color: active === index ? '#07c160' : '#7f7f7f'
+                            color: active === index ? '#00b894' : '#7f7f7f'
                         }}
                     > 
                     {tab.title}

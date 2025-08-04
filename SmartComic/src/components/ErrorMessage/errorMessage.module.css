@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.errorIcon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.errorText {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.retryButton {
+  background-color: #00b894;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.retryButton:hover {
+  background-color: #00a085;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .errorIcon {
+    font-size: 44px;
+  }
+  
+  .errorText {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .errorIcon {
+    font-size: 40px;
+  }
+  
+  .errorText {
+    font-size: 14px;
+  }
+} 

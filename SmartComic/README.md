@@ -1,6 +1,5 @@
 # react  追漫 APP
 
-
 ## 技术栈
 - React全家桶
    React 组件开发
@@ -35,3 +34,107 @@
     开发期间的依赖(加-D 开发期间使用)
     vite-plugin-mock  jwt 
     (pnpm i -D vite-plugin-mock jwt)
+
+## 项目亮点
+- 移动端适配：使用lib-flexible + postcss-pxtorem实现响应式布局
+- 图片懒加载：IntersectionObserver API实现图片按需加载
+- 状态管理：Zustand轻量级状态管理，支持异步操作
+- 组件封装：可复用的Loading、ErrorMessage、LazyImage等组件
+- 路由优化：React.lazy + Suspense实现代码分割和懒加载
+- 移动端适配：使用lib-flexible + postcss-pxtorem实现响应式布局
+- 图片懒加载：IntersectionObserver API实现图片按需加载
+- 状态管理：Zustand轻量级状态管理，支持异步操作
+- 组件封装：可复用的Loading、ErrorMessage、LazyImage等组件
+- 路由优化：React.lazy + Suspense实现代码分割和懒加载
+
+## 功能模块
+- UI组件库
+    - react-vant  第三方组件库  70%的组件已经有了，不用写
+    - 选择一个适合业务都UI组件库 或者公司内部的组件库
+- 配置路由及懒加载
+    - 懒加载
+    - 路由守卫
+    - Layout 组件
+        - 嵌套路由由Outle 分路由配置
+        - 网页有几个模板 Layout
+             - Route 不加path 对应的路由自动选择
+             - tabbar 模板
+             - blank 模板
+    - tabbar
+        - react-vant + @react-vant/icons
+        - value + onChange 响应式
+        - 直接点击连接分享 active 的设置
+
+## 项目的亮点和难点
+- 亮点：
+  - 完整的移动端适配方案
+  - 模块化CSS设计
+  - 组件化开发，高复用性
+  - 状态管理清晰，数据流可控
+- 难点：
+  - 图片懒加载的性能优化
+  - 移动端不同屏幕尺寸的适配
+  - 组件间状态同步和更新
+- 亮点：
+  - 完整的移动端适配方案
+  - 模块化CSS设计
+  - 组件化开发，高复用性
+  - 状态管理清晰，数据流可控
+- 难点：
+  - 图片懒加载的性能优化
+  - 移动端不同屏幕尺寸的适配
+  - 组件间状态同步和更新
+
+## 项目遇到过什么问题，怎么解决的
+- 自定义Hooks
+    - useTitle
+    一定要设置
+
+- 项目迭代
+    - 功能由浅入深
+    - chatbot deepseek 简单chat
+    - deepseek-r1 推理模型
+    - 流式输出
+    - 上下文 LRU
+    - coze 工作流接口调用
+
+- 排行榜页面数据切换问题
+  - 问题：标签切换时数据不更新
+  - 解决：修复useMemo依赖项，直接依赖activeTab而不是getCurrentRankings函数
+
+- 图片加载失败处理
+  - 问题：placeholder图片无法正常加载
+  - 解决：替换为picsum.photos随机图片，添加友好的错误占位符 
+
+- 排行榜页面数据切换问题
+  - 问题：标签切换时数据不更新
+  - 解决：修复useMemo依赖项，直接依赖activeTab而不是getCurrentRankings函数
+
+- 图片加载失败处理
+  - 问题：placeholder图片无法正常加载
+  - 解决：替换为picsum.photos随机图片，添加友好的错误占位符
+
+## 通用组件开发
+- Loading
+    - 居中方案
+        position:fixed + tlrb0 + margin:auto
+   - React.memo  无状态的组件，不重新渲染
+   - animation
+
+- LazyImage
+  - IntersectionObserver实现懒加载
+  - 加载状态、错误状态处理
+  - 占位符和fallback图标
+
+- TabSelector
+  - 标签切换组件
+  - 激活状态样式管理
+  - 响应式设计适配
+
+- LazyImage
+  - IntersectionObserver实现懒加载
+  - 加载状态、错误状态处理
+  - 占位符和fallback图标
+
+- TabSelector
+  - 标签切换组件
