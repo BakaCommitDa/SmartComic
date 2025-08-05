@@ -34,12 +34,12 @@ const MainLayout = () => {
     const navigate = useNavigate();
     const location = useLocation();
     useEffect(() => {
-        // es6的使用power 
+        // 根据当前路径设置激活的标签
         const index = tabs.findIndex(
             tab => location.pathname.startsWith(tab.path)
         );
-        setActive(index)
-    }, [])
+        setActive(index >= 0 ? index : 0)
+    }, [location.pathname])
     return (
         <div className={styles.container}>
             <div className={styles.content}>

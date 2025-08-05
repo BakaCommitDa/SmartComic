@@ -212,10 +212,15 @@ const Schedule = () => {
 
   useEffect(() => {
     initializeSchedule()
-  }, [])
+  }, [initializeSchedule])
 
   const handleDateSelect = (date) => {
     selectDate(date)
+  }
+
+  const handleRetry = () => {
+    clearError()
+    initializeSchedule()
   }
 
   return (
@@ -232,7 +237,7 @@ const Schedule = () => {
         {isLoading ? (
           <LoadingSpinner />
         ) : error ? (
-          <ErrorMessage error={error} onRetry={() => clearError()} />
+          <ErrorMessage error={error} onRetry={handleRetry} />
         ) : (
           <ScheduleGrid items={scheduleItems} />
         )}

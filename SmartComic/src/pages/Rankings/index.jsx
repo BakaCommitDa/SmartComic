@@ -12,9 +12,9 @@ const Rankings = () => {
   const { 
     activeTab, 
     tabs, 
+    rankingsData,
     isLoading, 
     error,
-    getCurrentRankings,
     setActiveTab, 
     initializeRankings,
     clearError 
@@ -29,19 +29,15 @@ const Rankings = () => {
 
   const handleRetry = useCallback(() => {
     clearError()
-  }, [clearError])
-
-  // 使用useMemo缓存当前排行榜数据
-  const currentRankings = useMemo(() => {
-    return getCurrentRankings()
-  }, [activeTab]) // 直接依赖activeTab而不是getCurrentRankings函数
+    initializeRankings()
+  }, [clearError, initializeRankings])
 
   // 使用useMemo缓存渲染的列表项
   const renderedRankings = useMemo(() => {
-    return currentRankings.map((item) => (
+    return rankingsData.map((item) => (
       <RankingItem key={`${activeTab}-${item.id}`} item={item} />
     ))
-  }, [currentRankings, activeTab])
+  }, [rankingsData, activeTab])
 
   useEffect(() => {
     initializeRankings()
@@ -65,7 +61,7 @@ const Rankings = () => {
             <LoadingSpinner />
           ) : error ? (
             <ErrorMessage error={error} onRetry={handleRetry} />
-          ) : currentRankings.length === 0 ? (
+          ) : rankingsData.length === 0 ? (
             <div style={{ textAlign: 'center', padding: '40px', color: '#666' }}>
               暂无数据
             </div>

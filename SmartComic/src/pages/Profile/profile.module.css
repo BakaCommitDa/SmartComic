@@ -1,5 +1,5 @@
 .container {
-    padding: 0;
+    padding: 16px 0 0 0;
     background-color: #f7f7f7;
     min-height: 100vh;
 }
@@ -102,7 +102,7 @@
 /* 移动端适配 */
 @media (max-width: 768px) {
     .container {
-        padding: 0;
+        padding: 12px 0 0 0;
     }
     
     .user {
@@ -190,7 +190,7 @@
 
 @media (max-width: 480px) {
     .container {
-        padding: 0;
+        padding: 10px 0 0 0;
     }
     
     .user {
@@ -264,7 +264,7 @@
 
 @media (max-width: 375px) {
     .container {
-        padding: 0;
+        padding: 8px 0 0 0;
     }
     
     .user {

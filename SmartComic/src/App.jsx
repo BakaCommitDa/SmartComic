@@ -25,9 +25,7 @@ const Search = lazy(() => import( '@/pages/Search'))
 const Login = lazy(() => import( '@/pages/Login'))
 
 
-
 function App() {
-
   return (
     <>
     <Suspense fallback={<Loding />}>

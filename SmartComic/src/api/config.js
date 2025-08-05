@@ -1,14 +1,18 @@
 import axios from 'axios'
 
-axios.defaults.baseURL = 'http://localhost:5174/api';
+// 开发环境使用相对路径，这样mock可以正确拦截
+axios.defaults.baseURL = '/api';
 
 axios.interceptors.request.use((config) => {
     // token
     return config;
 });
-// 响应拦截
-axios.interceptors.response.use((data) => {
-    return data.data
+
+// 响应拦截器修复
+axios.interceptors.response.use((response) => {
+    return response.data
+}, (error) => {
+    return Promise.reject(error)
 })
 
 export default axios

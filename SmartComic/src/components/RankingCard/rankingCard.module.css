@@ -1,0 +1,160 @@
+.rankingCard {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.rankingCard:hover {
+  transform: translateY(-2px);
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+}
+
+.rating {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(255, 193, 7, 0.9);
+  color: #333;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.ratingText {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.content {
+  padding: 8px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  line-height: 1.3;
+  margin-bottom: 4px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.authorInfo {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-size: 12px;
+  color: #666;
+}
+
+.author {
+  color: #333;
+  font-weight: 500;
+}
+
+.year {
+  color: #999;
+}
+
+.description {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.4;
+  margin-bottom: 6px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.tag {
+  font-size: 10px;
+  color: #ff6b35;
+  background-color: #fff5f0;
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .content {
+    padding: 6px;
+  }
+  
+  .title {
+    font-size: 14px;
+  }
+  
+  .authorInfo {
+    font-size: 11px;
+  }
+  
+  .description {
+    font-size: 11px;
+  }
+  
+  .tag {
+    font-size: 9px;
+    padding: 1px 4px;
+  }
+  
+  .rating {
+    padding: 3px 6px;
+  }
+  
+  .ratingText {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding: 5px;
+  }
+  
+  .title {
+    font-size: 13px;
+  }
+  
+  .authorInfo {
+    font-size: 10px;
+  }
+  
+  .description {
+    font-size: 10px;
+  }
+  
+  .tag {
+    font-size: 8px;
+    padding: 1px 3px;
+  }
+  
+  .rating {
+    padding: 2px 5px;
+  }
+  
+  .ratingText {
+    font-size: 11px;
+  }
+} 

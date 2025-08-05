@@ -6,6 +6,10 @@ import {
  BrowserRouter as Router
 } from 'react-router-dom';
 
+// 引入mock服务器
+if (import.meta.env.DEV) {
+  import('../mock/mockServer.js')
+}
 
 createRoot(document.getElementById('root')).render(
     <Router>
