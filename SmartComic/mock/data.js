@@ -792,42 +792,42 @@ export const homeData = {
       id: 1,
       title: '薫る花は凛と咲く',
       subtitle: '凛与薰交织的酸甜青春物语',
-      imageUrl: 'https://lain.bgm.tv/r/400/pic/cover/l/b8/0d/513345_jv4wM.jpg',
+      imageUrl: '/src/assets/1-carousel images.jpg',
       description: '家里开蛋糕店的凛太郎,因为高大的体型与凶狠的外表,从他小时候周围的人都对他抱有严重的偏见。某天,帮忙顾店的凛太郎与现场唯一的...'
     },
     {
       id: 2,
       title: 'タコピーの原罪',
       subtitle: '黑暗版哆啦A梦,年度致郁作',
-      imageUrl: 'https://lain.bgm.tv/r/400/pic/cover/l/57/d4/527620_6g9Ln.jpg',
+      imageUrl: '/src/assets/2-carousel images.jpg',
       description: '来自 HAPPY 星的外星人章鱼哔,目的是在地球散播 HAPPY。然而出师不利,一来到地球他就差点饿死,此时救了他一命的是平凡的少女小静...'
     },
     {
       id: 3,
       title: 'よふかしのうた',
       subtitle: '夜晚还没有结束',
-      imageUrl: 'https://lain.bgm.tv/r/400/pic/cover/l/38/44/398951_M97dM.jpg',
+      imageUrl: '/src/assets/3-carousel images .jpg',
       description: 'CALL OF THE NIGHT Season 2 - 夜晚还没有结束'
     },
     {
       id: 4,
       title: 'その着せ替え人形は恋をする Season 2',
       subtitle: '海梦与新菜的心动COS恋曲♡继续',
-      imageUrl: 'https://lain.bgm.tv/r/400/pic/cover/l/ae/03/524707_1quxk.jpg',
+      imageUrl: '/src/assets/4-carousel images.jpg',
       description: '某一天的相遇为开端,通过Cosplay加深交流的喜多川海梦与五条新菜。还有好多想尝试的Cosplay,想制作的服装。'
     },
     {
       id: 5,
       title: '青春ブタ野郎はサンタクロースの夢を見ない',
       subtitle: '再遇青春期综合征,大学篇开始',
-      imageUrl: 'https://lain.bgm.tv/r/400/pic/cover/l/9e/fa/509297_Cnz9B.jpg',
+      imageUrl: '/src/assets/5-carousel images.jpg',
       description: '青春期综合征再次出现，大学篇的故事即将开始'
     },
     {
       id: 6,
       title: 'ぐらんぶる 2',
       subtitle: '向合规的另一侧进发',
-      imageUrl: 'https://lain.bgm.tv/r/400/pic/cover/l/d6/29/515880_96Oxr.jpg',
+      imageUrl: '/src/assets/6-carousel images.jpg',
       description: '以上大学为契机,北原伊织开始在沿海城镇居住。他在那里遇见的是美貌出众的女孩、以及爱喝酒与水肺潜水的强壮男人们。'
     }
   ],
@@ -957,7 +957,7 @@ export const homeData = {
     {
       id: 2,
       title: '名侦探柯南',
-      imageUrl: 'https://lain.bgm.tv/r/400/pic/cover/l/8c/4a/123456_abc123.jpg',
+      imageUrl: 'https://vip.dytt-img.com/upload/vod/20250301-1/6bfe66de1f36c6d886a605710bea48d7.jpg',
       status: '连载中',
       episode: '更新至1080集',
       genres: ['推理', '悬疑', '侦探']
@@ -965,7 +965,7 @@ export const homeData = {
     {
       id: 3,
       title: '海贼王',
-      imageUrl: 'https://lain.bgm.tv/r/400/pic/cover/l/9d/5b/234567_def456.jpg',
+      imageUrl: 'https://images.weserv.nl/?url=https://lz.sinaimg.cn/mw690/0076NW5Ngy1ge3ztw2rdej307i0b90uy.jpg',
       status: '连载中',
       episode: '更新至1090集',
       genres: ['热血', '冒险', '战斗']
@@ -973,7 +973,7 @@ export const homeData = {
     {
       id: 4,
       title: '火影忍者 疾风传',
-      imageUrl: 'https://lain.bgm.tv/r/400/pic/cover/l/0e/6c/345678_ghi789.jpg',
+      imageUrl: 'https://images.weserv.nl/?url=https://lz.sinaimg.cn/bmiddle/0061dzvfly1h5k5i1k8wej30ew0jd7at.jpg',
       status: '已完结',
       episode: '共720集',
       genres: ['热血', '战斗', '忍者']
@@ -981,7 +981,7 @@ export const homeData = {
     {
       id: 5,
       title: '死神',
-      imageUrl: 'https://lain.bgm.tv/r/400/pic/cover/l/1f/7d/456789_jkl012.jpg',
+      imageUrl: 'https://cdn.yinghuazy.xyz/upload/vod/20201209-1/6fcdb3726d67c4de7e73e2fe8950fe75.jpg',
       status: '已完结',
       episode: '共366集',
       genres: ['热血', '战斗', '死神']
@@ -989,10 +989,66 @@ export const homeData = {
     {
       id: 6,
       title: '银魂',
-      imageUrl: 'https://lain.bgm.tv/r/400/pic/cover/l/2g/8e/567890_mno345.jpg',
+      imageUrl: 'https://images.weserv.nl/?url=https://lz.sinaimg.cn/bmiddle/0061dzvfly1gueyrmpqeyj607i0ab0td02.jpg',
       status: '已完结',
       episode: '共367集',
       genres: ['搞笑', '热血', '武士']
+    },
+    {
+      id: 7,
+      title: '蜡笔小新',
+      imageUrl: 'https://images.weserv.nl/?url=https://lz.sinaimg.cn/bmiddle/0061dzvfly1gxyi1kgv0oj307i09wn1k.jpg',
+      status: '连载中',
+      episode: '更新至1200集',
+      genres: ['搞笑', '日常', '子供向']
+    },
+    {
+      id: 8,
+      title: '哆啦A梦',
+      imageUrl: 'http://cdn.yinghuazy.xyz/upload/vod/20201029-2/ab7e63b51b5d63009adcac467507e5e9.jpg',
+      status: '连载中',
+      episode: '更新至1500集',
+      genres: ['科幻', '冒险', '子供向']
+    },
+    {
+      id: 9,
+      title: '数码宝贝',
+      imageUrl: 'https://cdn.yinghuazy.xyz/upload/vod/20201029-3/135b04ac520d98e8523e40f698e53767.jpg',
+      status: '已完结',
+      episode: '共54集',
+      genres: ['冒险', '战斗', '友情']
+    },
+    {
+      id: 10,
+      title: '美少女战士',
+      imageUrl: 'https://cdn.yinghuazy.xyz/upload/vod/20201029-3/d9c8e35da82662a8938b952f7cdd7170.jpg',
+      status: '已完结',
+      episode: '共200集',
+      genres: ['魔法', '战斗', '恋爱']
+    },
+    {
+      id: 11,
+      title: '圣斗士星矢',
+      imageUrl: 'http://cdn.yinghuazy.xyz/upload/vod/20201029-3/d346186325160a44fd7a1b0b0de9d511.jpg',
+      status: '已完结',
+      episode: '共114集',
+      genres: ['热血', '战斗', '神话']
+    },
+    {
+      id: 12,
+      title: '北斗神拳',
+      imageUrl: 'https://cdn.yinghuazy.xyz/upload/vod/20201029-3/5c3845685db66d5d4cd86f53480c0f55.jpg',
+      status: '已完结',
+      episode: '共152集',
+      genres: ['热血', '战斗', '末世']
+    },
+    {
+      id: 13,
+      title: '城市猎人',
+      imageUrl: 'https://images.weserv.nl/?url=https://lz.sinaimg.cn/mw600/0076EvBmgy1h5b53xm7y3j30hs0p4gqe.jpg',
+      status: '已完结',
+      episode: '共140集',
+      genres: ['动作', '犯罪', '恋爱']
     }
   ],
 
@@ -1205,6 +1261,254 @@ export const homeData = {
       rating: '7.3',
       description: '转生成为王子的主角将继续他的魔法冒险之旅。',
       tags: ['奇幻', '冒险', '正太', '小男娘']
+    }
+  ],
+
+  // 剧场版数据
+  movieAnime: [
+    {
+      id: 1,
+      title: '你的名字。',
+      imageUrl: 'https://cdn.yinghuazy.xyz/upload/vod/20210219-1/5e3b65ef9e6c582f09784d027cfb1923.jpg',
+      status: '已完结',
+      episode: '剧场版',
+      genres: ['恋爱', '奇幻', '神作']
+    },
+    {
+      id: 2,
+      title: '天气之子',
+      imageUrl: 'http://cdn.yinghuazy.xyz/upload/vod/20201029-4/9932894f20b6b31c3c5793fe27a58538.jpg',
+      status: '已完结',
+      episode: '剧场版',
+      genres: ['恋爱', '奇幻', '治愈']
+    },
+    {
+      id: 3,
+      title: '铃芽之旅',
+      imageUrl: 'https://images.weserv.nl/?url=https://lz.sinaimg.cn/large/006sgDEegy1h2gzh4diwkj307i0amjuv.jpg',
+      status: '已完结',
+      episode: '剧场版',
+      genres: ['奇幻', '冒险', '治愈']
+    },
+    {
+      id: 4,
+      title: '鬼灭之刃 无限列车篇',
+      imageUrl: 'https://images.weserv.nl/?url=https://lz.sinaimg.cn/large/008kBpBlgy1gvanib2z4mj607409waap02.jpg',
+      status: '已完结',
+      episode: '剧场版',
+      genres: ['热血', '战斗', '奇幻']
+    },
+    {
+      id: 5,
+      title: '咒术回战 0',
+      imageUrl: 'https://images.weserv.nl/?url=https://lz.sinaimg.cn/large/006yt1Omgy1gy1m3q5n5ij31481kw1d3.jpg',
+      status: '已完结',
+      episode: '剧场版',
+      genres: ['热血', '战斗', '奇幻']
+    },
+    {
+      id: 6,
+      title: '海贼王 红发歌姬',
+      imageUrl: 'https://cdn.yinghuazy.xyz/jpg/ly1h52sp8skgpj307i0amdk6.jpg',
+      status: '已完结',
+      episode: '剧场版',
+      genres: ['热血', '冒险', '音乐']
+    },
+    {
+      id: 7,
+      title: '龙珠超：超级英雄',
+      imageUrl: 'https://images.weserv.nl/?url=https://lz.sinaimg.cn/large/006yt1Omgy1gxei9u2b0mj31ya2rjqv5.jpg',
+      status: '已完结',
+      episode: '剧场版',
+      genres: ['热血', '战斗', '科幻']
+    },
+    {
+      id: 8,
+      title: '精灵宝可梦 皮卡丘和可可的冒险',
+      imageUrl: 'https://cdn.yinghuazy.xyz/upload/vod/20201029-5/96f655be9454a4ecd0b705759eea800f.jpg',
+      status: '已完结',
+      episode: '剧场版',
+      genres: ['冒险', '子供向', '治愈']
+    },
+    {
+      id: 9,
+      title: '哆啦A梦 大雄的宇宙小战争2021',
+      imageUrl: 'https://cdn.yinghuazy.xyz/jpg/ly1h54xiix0qij307i0aljvp.jpg',
+      status: '已完结',
+      episode: '剧场版',
+      genres: ['科幻', '冒险', '子供向']
+    },
+    {
+      id: 10,
+      title: '数码宝贝 最后的进化',
+      imageUrl: 'https://vip.dytt-img.com/upload/vod/20250306-1/be8bf268c0a5122ee52507f5c488d4e7.jpg',
+      status: '已完结',
+      episode: '剧场版',
+      genres: ['冒险', '战斗', '友情']
+    },
+    {
+      id: 11,
+      title: '刀剑神域 进击篇',
+      imageUrl: 'https://images.weserv.nl/?url=https://lz.sinaimg.cn/large/006yt1Omgy1gs31iw7q2nj30sg143gsq.jpg',
+      status: '已完结',
+      episode: '剧场版',
+      genres: ['奇幻', '冒险', '游戏']
+    },
+    {
+      id: 12,
+      title: '紫罗兰永恒花园 剧场版',
+      imageUrl: 'http://cdn.yinghuazy.xyz/upload/vod/20201125-1/027b7507ee45072bc04d12fcc9ca394e.jpg',
+      status: '已完结',
+      episode: '剧场版',
+      genres: ['治愈', '战争', '恋爱']
+    },
+    {
+      id: 13,
+      title: 'Fate/stay night 天之杯',
+      imageUrl: 'http://cdn.yinghuazy.xyz/upload/vod/20201029-2/cd88edbe4b123b843da372fc225352a0.jpg',
+      status: '已完结',
+      episode: '剧场版',
+      genres: ['奇幻', '战斗', '神作']
+    },
+    {
+      id: 14,
+      title: 'EVA 新剧场版：终',
+      imageUrl: 'https://images.weserv.nl/?url=https://pic.rmb.bdstatic.com/bjh/c4797cfc9d4012d54f4253721095cc75.jpeg',
+      status: '已完结',
+      episode: '剧场版',
+      genres: ['科幻', '机战', '神作']
+    },
+    {
+      id: 15,
+      title: '攻壳机动队 新剧场版',
+      imageUrl: 'http://cdn.yinghuazy.xyz/upload/vod/20201029-2/a7b6123920d1d356c5f863f96b86c398.jpg',
+      status: '已完结',
+      episode: '剧场版',
+      genres: ['科幻', '赛博朋克', '动作']
+    }
+  ],
+
+  // 经典番剧数据
+  classicAnime: [
+    {
+      id: 1,
+      title: '进击的巨人',
+      imageUrl: 'https://cdn.yinghuazy.xyz/upload/vod/20201029-2/d1e78cdd56d65a303e6da204fb509f3d.jpg',
+      status: '已完结',
+      episode: '共25集',
+      genres: ['热血', '战斗', '奇幻']
+    },
+    {
+      id: 2,
+      title: '钢之炼金术师FA',
+      imageUrl: 'http://cdn.yinghuazy.xyz/upload/vod/20201029-4/066dab4e5162fe31883d10eeefd3fc13.jpg',
+      status: '已完结',
+      episode: '共64集',
+      genres: ['热血', '战斗', '奇幻']
+    },
+    {
+      id: 3,
+      title: '死亡笔记',
+      imageUrl: 'https://cdn.yinghuazy.xyz/jpg/ly1gzu36ywarnj30ew0modjh.jpg',
+      status: '已完结',
+      episode: '共37集',
+      genres: ['悬疑', '推理', '神作']
+    },
+    {
+      id: 4,
+      title: '全职猎人',
+      imageUrl: 'http://cdn.yinghuazy.xyz/upload/vod/20201029-3/85aabe44f2c3d4afd6ad8b1e3b688cab.jpg',
+      status: '已完结',
+      episode: '共148集',
+      genres: ['热血', '冒险', '战斗']
+    },
+    {
+      id: 5,
+      title: '火影忍者',
+      imageUrl: 'http://cdn.yinghuazy.xyz/upload/vod/20201029-3/bd1b1c4a73614529d7d26f35e8bbcbb9.jpg',
+      status: '已完结',
+      episode: '共720集',
+      genres: ['热血', '战斗', '忍者']
+    },
+    {
+      id: 6,
+      title: '海贼王',
+      imageUrl: 'https://images.weserv.nl/?url=https://lz.sinaimg.cn/mw690/0076NW5Ngy1ge3ztw2rdej307i0b90uy.jpg',
+      status: '连载中',
+      episode: '更新至1090集',
+      genres: ['热血', '冒险', '战斗']
+    },
+    {
+      id: 7,
+      title: '银魂',
+      imageUrl: 'https://images.weserv.nl/?url=https://lz.sinaimg.cn/bmiddle/0061dzvfly1gueyrmpqeyj607i0ab0td02.jpg',
+      status: '已完结',
+      episode: '共367集',
+      genres: ['搞笑', '热血', '武士']
+    },
+    {
+      id: 8,
+      title: '死神',
+      imageUrl: 'https://cdn.yinghuazy.xyz/upload/vod/20201209-1/6fcdb3726d67c4de7e73e2fe8950fe75.jpg',
+      status: '已完结',
+      episode: '共366集',
+      genres: ['热血', '战斗', '死神']
+    },
+    {
+      id: 9,
+      title: '家庭教师',
+      imageUrl: 'https://vip.dytt-img.com/upload/vod/20250306-1/0f0b5502152b7d3318a9be0f3ac047d7.jpg',
+      status: '已完结',
+      episode: '共203集',
+      genres: ['热血', '战斗', '黑帮']
+    },
+    {
+      id: 10,
+      title: '网球王子',
+      imageUrl: 'https://vip.dytt-img.com/upload/vod/20250305-1/0f2a11e86a73aea5433447ae4db2c3d7.jpg',
+      status: '已完结',
+      episode: '共178集',
+      genres: ['运动', '校园', '热血']
+    },
+    {
+      id: 11,
+      title: '黑子的篮球',
+      imageUrl: 'https://cdn.yinghuazy.xyz/upload/vod/20201029-3/2a581eb774c0267ef078599eaaf2b89b.jpg',
+      status: '已完结',
+      episode: '共75集',
+      genres: ['运动', '校园', '热血']
+    },
+    {
+      id: 12,
+      title: '灌篮高手',
+      imageUrl: 'http://cdn.yinghuazy.xyz/upload/vod/20201029-2/47ba181b2d7a158a3bc6ef000529e6d3.jpg',
+      status: '已完结',
+      episode: '共101集',
+      genres: ['运动', '校园', '热血']
+    },
+    {
+      id: 13,
+      title: '犬夜叉',
+      imageUrl: 'http://cdn.yinghuazy.xyz/upload/vod/20201029-2/993bfb881e3e51d8a76c9443ee679c90.jpg',
+      status: '已完结',
+      episode: '共167集',
+      genres: ['奇幻', '冒险', '恋爱']
+    },
+    {
+      id: 14,
+      title: '新世纪福音战士',
+      imageUrl: 'http://cdn.yinghuazy.xyz/upload/vod/20201029-4/240c605064ea79dae73aed57ea87d84d.jpg',
+      status: '已完结',
+      episode: '共26集',
+      genres: ['科幻', '机战', '神作']
+    },
+    {
+      id: 15,
+      title: '攻壳机动队',
+      imageUrl: 'https://cdn.yinghuazy.xyz/upload/vod/20201029-2/bad90ec6a55657ade270348227f66767.jpg',
+      status: '已完结',
+      episode: '共52集',
+      genres: ['科幻', '赛博朋克', '动作']
     }
   ],
 

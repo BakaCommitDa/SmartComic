@@ -19,6 +19,8 @@
   object-position: center;
   display: block;
   transition: transform 0.3s ease;
+  min-height: 100%;
+  min-width: 100%;
 }
 
 .bannerOverlay {
@@ -84,15 +86,16 @@
   bottom: 20px;
   right: 20px;
   display: flex;
-  gap: 8px;
+  gap: 6px;
   z-index: 3;
+  padding: 0 20px 20px 0;
 }
 
 .indicator {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.4);
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -100,11 +103,11 @@
 
 .indicator.active {
   background: white;
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 .indicator:hover {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.7);
 }
 
 /* 移动端适配 */
@@ -112,6 +115,13 @@
   .bannerImage {
     height: 450px;
     border-radius: 10px;
+  }
+  
+  .bannerImg {
+    object-fit: cover;
+    object-position: center;
+    min-height: 100%;
+    min-width: 100%;
   }
   
   .bannerOverlay {
@@ -136,12 +146,12 @@
   .indicators {
     bottom: 16px;
     right: 16px;
-    gap: 6px;
+    gap: 5px;
   }
   
   .indicator {
-    width: 6px;
-    height: 6px;
+    width: 5px;
+    height: 5px;
   }
 }
 
@@ -149,6 +159,13 @@
   .bannerImage {
     height: 400px;
     border-radius: 8px;
+  }
+  
+  .bannerImg {
+    object-fit: cover;
+    object-position: center;
+    min-height: 100%;
+    min-width: 100%;
   }
   
   .bannerOverlay {
@@ -173,12 +190,12 @@
   .indicators {
     bottom: 12px;
     right: 12px;
-    gap: 5px;
+    gap: 4px;
   }
   
   .indicator {
-    width: 5px;
-    height: 5px;
+    width: 4px;
+    height: 4px;
   }
 }
 
@@ -186,6 +203,13 @@
   .bannerImage {
     height: 350px;
     border-radius: 6px;
+  }
+  
+  .bannerImg {
+    object-fit: cover;
+    object-position: center;
+    min-height: 100%;
+    min-width: 100%;
   }
   
   .bannerOverlay {
@@ -210,11 +234,11 @@
   .indicators {
     bottom: 10px;
     right: 10px;
-    gap: 4px;
+    gap: 3px;
   }
   
   .indicator {
-    width: 4px;
-    height: 4px;
+    width: 3px;
+    height: 3px;
   }
 } 

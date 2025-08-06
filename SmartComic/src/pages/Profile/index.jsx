@@ -29,12 +29,12 @@ const Profile = () => {
         nickname: '神奇妙脆角',
         level: '5级',
         slogan: '不要看我',
-        avatar: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg'
+        avatar: '/src/assets/abd5096d55575b2bdb71d0cbd96e8976.jpg'
     })
     useTitle("我的")
     const [showActionSheet, setShowActionSheet] = useState(false);
     const handleAction = async (e) => {
-        console.log(e)
+        // console.log(e)
         if (e.type === 1) {
         // AI 生成头像
             const text = `

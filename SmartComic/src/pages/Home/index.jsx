@@ -18,6 +18,8 @@ const Home = () => {
     banner,
     hotNewReleases,
     japaneseAnime,
+    movieAnime,
+    classicAnime,
     scheduleItems,
     rankingItems,
     navTabs,
@@ -64,6 +66,18 @@ const Home = () => {
       <RankingCard key={item.id} item={item} />
     ))
   }, [rankingItems])
+
+  const renderedMovieAnime = useMemo(() => {
+    return movieAnime.map((item) => (
+      <AnimeCard key={item.id} item={item} showTags={true} />
+    ))
+  }, [movieAnime])
+
+  const renderedClassicAnime = useMemo(() => {
+    return classicAnime.map((item) => (
+      <AnimeCard key={item.id} item={item} showTags={true} />
+    ))
+  }, [classicAnime])
 
   useEffect(() => {
     initializeHome()
@@ -163,13 +177,20 @@ const Home = () => {
               </div>
             )}
 
-            {(activeTab === 'movie' || activeTab === 'classic') && (
+            {activeTab === 'movie' && (
               <div className={styles.section}>
-                <h2 className={styles.sectionTitle}>
-                  {activeTab === 'movie' ? '剧场版' : '经典番剧'}
-                </h2>
+                <h2 className={styles.sectionTitle}>剧场版</h2>
                 <div className={styles.cardGrid}>
-                  {renderedHotNewReleases}
+                  {renderedMovieAnime}
+                </div>
+              </div>
+            )}
+
+            {activeTab === 'classic' && (
+              <div className={styles.section}>
+                <h2 className={styles.sectionTitle}>经典番剧</h2>
+                <div className={styles.cardGrid}>
+                  {renderedClassicAnime}
                 </div>
               </div>
             )}

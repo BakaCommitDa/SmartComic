@@ -1,14 +1,12 @@
-import{
+import {
     Outlet
-}from 'react-router-dom'
+} from 'react-router-dom'
 
-const Blankyout = () => {
+const BlankLayout = () => {
     return (
         <>
             <Outlet/>
-            Blankyout
-            
         </>
     )
 }
-export default Blankyout
+export default BlankLayout

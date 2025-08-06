@@ -26,18 +26,27 @@ export const chat = async (
             })
         })
         const data = await response.json();
+        
+        if (!response.ok) {
+            throw new Error(data.error?.message || `HTTP ${response.status}: ${response.statusText}`);
+        }
+        
+        if (!data.choices || !data.choices[0] || !data.choices[0].message) {
+            throw new Error('API响应格式错误');
+        }
+        
         return {
             code: 0,
             data: {
                 role: 'assistant',
                 content: data.choices[0].message.content
             }
-            
         }
     } catch(err) {
+        console.error('API调用错误:', err);
         return {
-            code: 0,
-            msg: '出错了...'
+            code: -1,
+            msg: err.message || '网络请求失败，请检查网络连接'
         }
    } 
 }

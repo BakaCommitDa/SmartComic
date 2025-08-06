@@ -73,7 +73,7 @@ const AniGenie = () => {
               ]
           });
       } catch (error) {
-          console.error('聊天出错:', error);
+          // console.error('聊天出错:', error);
           setMessages((prev) => {
               return [
                   ...prev,
@@ -106,14 +106,26 @@ const AniGenie = () => {
                           msg.role === 'user' ? styles.userMessage : styles.assistantMessage
                       }`}
                   >
-                      <div className={styles.messageBubble}>
+                      <div 
+                          className={styles.messageBubble}
+                          style={{
+                              fontSize: '24px',
+                              lineHeight: '1.5'
+                          }}
+                      >
                           {msg.content}
                       </div>
                   </div>
               ))}
               {isSending && (
                   <div className={`${styles.messageContainer} ${styles.assistantMessage}`}>
-                      <div className={styles.messageBubble}>
+                      <div 
+                          className={styles.messageBubble}
+                          style={{
+                              fontSize: '24px',
+                              lineHeight: '1.5'
+                          }}
+                      >
                           <div className={styles.typingIndicator}>
                               <span></span>
                               <span></span>
@@ -135,6 +147,10 @@ const AniGenie = () => {
                       multiline
                       rows={1}
                       autoSize
+                      style={{
+                          fontSize: '28px',
+                          lineHeight: '1.4'
+                      }}
                   />
                   <button 
                       disabled={isSending || !text.trim()} 
