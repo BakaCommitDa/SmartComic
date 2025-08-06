@@ -38,26 +38,15 @@ function App() {
           <Route path="/anigenie" element={<AniGenie/>}/>
           <Route path="/rankings" element={<Rankings/>}/>
           <Route path="/profile" element={<Profile/>}/>
-
         </Route>
 
-      </Routes>
-
-
-      <Routes>
         {/* 空的Layout */}
         <Route element={<BlankLayout />}>
           <Route path="/login" element={<Login />}/>
           <Route path="/search" element={<Search />}/>
           <Route path="/detail/:id" element={<Detail />} />
-          
-
-        
         </Route>
-        
       </Routes>
-
-
     </Suspense>
     </>
   )
