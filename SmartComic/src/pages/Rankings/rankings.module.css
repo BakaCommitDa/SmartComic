@@ -7,10 +7,38 @@
   flex-direction: column;
 }
 
+/* 固定头部区域 */
+.fixedHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  z-index: 1000;
+  padding-top: 28px;
+  padding-bottom: 0;
+}
+
+/* 内容区域样式 */
 .content {
   padding: 16px;
+  margin-top: 200px; /* 增加为固定头部留出更多空间 */
   flex: 1;
   overflow-y: auto;
+  position: relative;
+}
+
+.content::before {
+  content: '';
+  position: fixed;
+  top: 200px;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: linear-gradient(to bottom, rgba(247, 247, 247, 1), rgba(247, 247, 247, 0));
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0.6;
 }
 
 /* 标题区域 */
@@ -38,10 +66,20 @@
   z-index: 1;
 }
 
-/* 移动端适配 */
+/* 响应式设计 - 与首页完全一致 */
 @media (max-width: 768px) {
   .content {
-    padding: 24px;
+    padding: 12px;
+    margin-top: 180px; /* 移动端增加头部空间 */
+  }
+  
+  .content::before {
+    top: 180px;
+  }
+  
+  .fixedHeader {
+    padding-top: 24px;
+    padding-bottom: 0;
   }
   
   .titleSection {
@@ -57,7 +95,17 @@
 
 @media (max-width: 480px) {
   .content {
-    padding: 20px;
+    padding: 10px;
+    margin-top: 160px; /* 小屏幕增加头部空间 */
+  }
+  
+  .content::before {
+    top: 160px;
+  }
+  
+  .fixedHeader {
+    padding-top: 20px;
+    padding-bottom: 0;
   }
   
   .titleSection {
@@ -68,5 +116,31 @@
     font-size: 30px;
     font-weight: 800;
     margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 375px) {
+  .content {
+    padding: 8px;
+    margin-top: 140px; /* 超小屏幕增加头部空间 */
+  }
+  
+  .content::before {
+    top: 140px;
+  }
+  
+  .fixedHeader {
+    padding-top: 16px;
+    padding-bottom: 0;
+  }
+  
+  .titleSection {
+    padding: 8px 0;
+  }
+  
+  .pageTitle {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 14px;
   }
 }

@@ -1,0 +1,195 @@
+.searchBox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 101;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    gap: 12px;
+}
+
+.backBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #40e0d0; /* 浅蓝色/青色 */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.backBtn:hover {
+    background: #30c0b0;
+}
+
+.searchWrapper {
+    flex: 1;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.searchWrapper:hover {
+    transform: scale(1.02);
+}
+
+.searchInput {
+    flex: 1;
+    background: #f5f5f5 !important;
+    border-radius: 100px !important;
+    min-height: 72px !important;
+    height: 72px !important;
+    border: 2px solid transparent !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    margin-right: 8px;
+}
+
+.searchInput:focus-within {
+    border-color: #e0e0e0 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* 覆盖React Vant Search组件的默认样式 */
+.searchInput :global(.rv-search__content) {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 100px !important;
+    min-height: inherit !important;
+    height: inherit !important;
+    max-height: inherit !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.searchInput :global(.rv-field) {
+    min-height: inherit !important;
+    height: inherit !important;
+    max-height: inherit !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.searchInput :global(.rv-search__action) {
+    display: none !important;
+}
+
+.searchInput :global(.rv-field__input) {
+    font-size: 20px !important; /* 从24px调小到20px */
+    color: #333 !important;
+    background: transparent !important;
+    border-radius: 100px !important;
+    line-height: 1.2 !important;
+    padding: 16px 24px !important;
+    min-height: inherit !important;
+    height: inherit !important;
+    max-height: inherit !important;
+    display: flex !important;
+    align-items: center !important;
+    text-align: center !important; /* 文字居中对齐 */
+    justify-content: center !important; /* 水平居中 */
+}
+
+.searchInput :global(.rv-field__placeholder) {
+    color: #999 !important;
+    font-size: 20px !important; /* 从24px调小到20px */
+    display: flex !important;
+    align-items: center !important;
+    text-align: center !important; /* 占位符文字居中对齐 */
+    justify-content: center !important; /* 水平居中 */
+}
+
+.searchBtn {
+    padding: 12px 20px;
+    background: #40e0d0; /* 与返回按钮相同的浅蓝色/青色 */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchBtn:hover {
+    background: #30c0b0; /* 与返回按钮相同的悬停颜色 */
+}
+
+.searchBtn:active {
+    background: #20a090;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .header {
+        padding: 10px 12px;
+        gap: 10px;
+    }
+    
+    .searchInput {
+        min-height: 64px !important;
+        height: 64px !important;
+    }
+    
+    .searchInput :global(.rv-field__input) {
+        font-size: 16px !important; /* 进一步调小字体 */
+        text-align: center !important; /* 移动端文字居中对齐 */
+        justify-content: center !important; /* 水平居中 */
+    }
+    
+    .searchInput :global(.rv-field__placeholder) {
+        font-size: 16px !important; /* 进一步调小字体 */
+        text-align: center !important; /* 移动端占位符文字居中对齐 */
+        justify-content: center !important; /* 水平居中 */
+    }
+    
+    .searchBtn {
+        padding: 8px 16px;
+        font-size: 14px;
+        height: 64px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 8px 10px;
+    }
+    
+    .searchInput {
+        min-height: 56px !important;
+        height: 56px !important;
+    }
+    
+    .searchInput :global(.rv-field__input) {
+        font-size: 14px !important; /* 进一步调小字体 */
+        text-align: center !important; /* 小屏幕文字居中对齐 */
+        justify-content: center !important; /* 水平居中 */
+    }
+    
+    .searchInput :global(.rv-field__placeholder) {
+        font-size: 14px !important; /* 进一步调小字体 */
+        text-align: center !important; /* 小屏幕占位符文字居中对齐 */
+        justify-content: center !important; /* 水平居中 */
+    }
+    
+    .searchBtn {
+        padding: 6px 12px;
+        font-size: 13px;
+        height: 56px;
+    }
+} 

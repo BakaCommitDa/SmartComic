@@ -7,16 +7,25 @@
 .content {
   flex: 1;
   overflow-y: auto;
+  padding-bottom: 60px; /* 为底部导航栏留出空间 */
 }
 
 /* 移动端适配 */
 @media (max-width: 768px) {
+    .content {
+        padding-bottom: 65px; /* 移动端稍微增加底部间距 */
+    }
+    
     .tabbar-item {
         font-size: 14px !important; /* 增加移动端字体大小 */
     }
 }
 
 @media (max-width: 480px) {
+    .content {
+        padding-bottom: 70px; /* 小屏幕增加更多底部间距 */
+    }
+    
     .tabbar-item {
         font-size: 13px !important; /* 增加小屏幕字体大小 */
     }

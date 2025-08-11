@@ -8,7 +8,9 @@ import {
 
 // 引入mock服务器
 if (import.meta.env.DEV) {
-  import('../mock/mockServer.js')
+  import('../mock/mockServer.js').catch(err => {
+    console.error('Mock服务器加载失败:', err)
+  })
 }
 
 createRoot(document.getElementById('root')).render(

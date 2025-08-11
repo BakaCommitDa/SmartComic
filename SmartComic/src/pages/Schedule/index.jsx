@@ -133,7 +133,7 @@ const ScheduleItem = ({ item }) => {
         />
       </div>
       
-      <div className={styles.content}>
+      <div className={styles.scheduleContent}>
         <div className={styles.title}>{title}</div>
         <div className={styles.releaseInfo}>{releaseInfo}</div>
         <div className={styles.genres}>
@@ -225,12 +225,15 @@ const Schedule = () => {
 
   return (
     <div className={styles.container}>
-      {/* 日期选择器 */}
-      <DateSelector 
-        dateList={dateList}
-        currentDate={currentSelectedDate}
-        onDateSelect={handleDateSelect}
-      />
+      {/* 固定头部 */}
+      <div className={styles.fixedHeader}>
+        {/* 日期选择器 */}
+        <DateSelector 
+          dateList={dateList}
+          currentDate={currentSelectedDate}
+          onDateSelect={handleDateSelect}
+        />
+      </div>
       
       {/* 内容区域 */}
       <div className={styles.content}>

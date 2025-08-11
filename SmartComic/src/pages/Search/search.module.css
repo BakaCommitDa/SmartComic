@@ -7,37 +7,377 @@
     z-index: 100;
     overflow: hidden;
     background: #f2f3f4;
+    display: flex;
+    flex-direction: column;
 }
-.list {
-    position: absolute;
-    top: 80px;
+
+.wrapper {
+    flex: 1;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+    margin-top: 0;
+}
+
+/* 历史记录样式 */
+.historySection {
     background: white;
-    bottom: 0;
-    width: 100%;
+    margin: 0;
+    margin-top: -97px; /* 抵消SearchBox的总高度：12px + 72px + 12px + 1px border */
+    border-radius: 0;
+    padding: 0;
+    transition: all 0.3s ease;
+    opacity: 1;
+    transform: translateY(0);
 }
-.item {
-    font-size: 24px;
-    padding: 20px 10px;
+
+.historySection.hidden {
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+}
+
+.sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0;
+    padding: 16px 16px 0 16px;
+}
+
+.sectionHeader h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+.clearBtn {
+    background: none;
+    border: none;
+    color: #00b894;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.clearBtn:hover {
+    color: #00a085;
+}
+
+.historyGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 0 16px 16px 16px;
+}
+
+.historyItem {
+    background: #f8f9fa;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 18px;
+    color: #666;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    position: relative;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    max-width: 200px;
+}
+
+.historyItem:hover {
+    background: #e9ecef;
+    transform: translateY(-1px);
+}
+
+.historyItem::after {
+    content: '×';
+    position: absolute;
+    top: 2px;
+    right: 4px;
+    font-size: 14px;
+    color: #ccc;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.historyItem:hover::after {
+    opacity: 1;
+}
+
+/* 热门推荐样式 */
+.hotSection {
+    background: white;
+    margin: 12px;
+    border-radius: 8px;
+    padding: 16px;
+    transition: all 0.3s ease;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hotSection.hidden {
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+}
+
+.hotSection h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 12px 0;
+}
+
+.hotGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.hotItem {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.hotItem:hover {
+    background: #e9ecef;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hotRank {
+    width: 24px;
+    height: 24px;
+    background: #007aff;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.hotName {
+    flex: 1;
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.hotCount {
+    font-size: 14px;
+    color: #999;
+    margin-left: 8px;
+}
+
+.list {
+    background: white;
+    margin: 12px;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.list.hidden {
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+}
+
+.suggestItem {
+    padding: 16px;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+}
+
+.suggestItem:hover {
+    background: #f8f9fa;
+    transform: translateX(2px);
+}
+
+.suggestItem:last-child {
+    border-bottom: none;
+}
+
+.suggestIcon {
+    width: 16px;
+    height: 16px;
+    color: #999;
+    margin-right: 12px;
+}
+
+.emptyState {
+    text-align: center;
+    padding: 40px 20px;
+    color: #999;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.loadingState {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.emptyHistoryState {
+    text-align: center;
+    color: #999;
+    padding: 8px; /* 进一步减小上下间距 */
+    font-size: 20px; /* 增大字体 */
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* 移动端适配 */
 @media (max-width: 768px) {
-    .item {
-        font-size: 26px; /* 增加移动端字体大小 */
-        padding: 22px 12px;
+    .wrapper {
+        padding-top: 0;
+    }
+    
+    .historySection {
+        margin: 0;
+        margin-top: -85px; /* 抵消SearchBox的总高度：10px + 64px + 10px + 1px border */
+        padding: 0;
+    }
+    
+    .hotSection {
+        margin: 8px;
+        padding: 12px;
+    }
+    
+    .sectionHeader h2,
+    .hotSection h2 {
+        font-size: 22px !important;
+    }
+    
+    .historyItem {
+        font-size: 22px !important;
+        padding: 14px 18px;
+        min-height: 50px;
+    }
+    
+    .hotItem {
+        padding: 16px;
+    }
+    
+    .hotName {
+        font-size: 20px !important;
+    }
+    
+    .hotRank {
+        font-size: 18px !important;
+    }
+    
+    .hotCount {
+        font-size: 18px !important;
+    }
+    
+    .suggestItem {
+        padding: 20px;
+        font-size: 20px !important;
+    }
+    
+    .clearBtn {
+        font-size: 20px !important;
     }
 }
 
 @media (max-width: 480px) {
-    .item {
-        font-size: 25px; /* 增加小屏幕字体大小 */
-        padding: 20px 12px;
+    .wrapper {
+        padding-top: 0;
     }
-}
-
-@media (max-width: 375px) {
-    .item {
-        font-size: 24px; /* 增加超小屏幕字体大小 */
-        padding: 18px 12px;
+    
+    .historySection {
+        margin: 0;
+        margin-top: -73px; /* 抵消SearchBox的总高度：8px + 56px + 8px + 1px border */
+        padding: 0;
+    }
+    
+    .historyGrid {
+        gap: 14px;
+    }
+    
+    .hotGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    
+    .hotItem {
+        padding: 14px;
+    }
+    
+    .hotRank {
+        width: 28px;
+        height: 28px;
+        font-size: 16px !important;
+        margin-right: 14px;
+    }
+    
+    .hotName {
+        font-size: 18px !important;
+    }
+    
+    .hotCount {
+        font-size: 16px !important;
+    }
+    
+    .sectionHeader h2,
+    .hotSection h2 {
+        font-size: 20px !important;
+    }
+    
+    .historyItem {
+        font-size: 20px !important;
+        padding: 14px 16px;
+        min-height: 48px;
+        max-width: 180px;
+    }
+    
+    .suggestItem {
+        padding: 18px;
+        font-size: 18px !important;
+    }
+    
+    .clearBtn {
+        font-size: 18px !important;
     }
 }

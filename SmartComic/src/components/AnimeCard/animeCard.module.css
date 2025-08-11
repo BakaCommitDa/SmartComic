@@ -4,6 +4,9 @@
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .card:hover {
@@ -12,21 +15,13 @@
 
 
 
-.tag {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  background: #ff4757;
-  color: white;
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-size: 10px;
-  font-weight: bold;
-  z-index: 1;
-}
+
 
 .content {
   padding: 8px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .title {
@@ -41,18 +36,21 @@
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: left;
+  flex-shrink: 0;
 }
 
 .releaseInfo {
   font-size: 16px;
   color: #666;
   margin-bottom: 6px;
+  flex-shrink: 0;
 }
 
 .genres {
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
+  margin-top: auto;
 }
 
 .genre {

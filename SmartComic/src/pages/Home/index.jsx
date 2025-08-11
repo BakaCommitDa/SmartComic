@@ -1,6 +1,7 @@
 import React, { useEffect, useCallback, useMemo } from 'react'
 import { ClockO } from '@react-vant/icons'
 import { Search } from 'react-vant'
+import { useNavigate } from 'react-router-dom'
 import useTitle from '@/hooks/useTitle'
 import { useHomeStore } from '@/store/homeStore'
 import TabSelector from '@/components/TabSelector'
@@ -13,6 +14,7 @@ import ErrorMessage from '@/components/ErrorMessage'
 import styles from './home.module.css'
 
 const Home = () => {
+  const navigate = useNavigate()
   const {
     activeTab,
     banner,
@@ -41,6 +43,16 @@ const Home = () => {
     clearError()
     initializeHome()
   }, [clearError, initializeHome])
+
+  // 优化搜索点击性能
+  const handleSearchClick = useCallback((e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    // 使用 requestAnimationFrame 确保在下一帧执行导航
+    requestAnimationFrame(() => {
+      navigate('/search')
+    })
+  }, [navigate])
 
   // 使用useMemo缓存渲染的列表项
   const renderedHotNewReleases = useMemo(() => {
@@ -85,28 +97,34 @@ const Home = () => {
 
   return (
     <div className={styles.container}>
-      {/* 搜索栏 */}
-      <div className={styles.searchBar}>
-        <Search
-          placeholder="今天你想看些什么?"
-          className={styles.searchInput}
-          style={{
-            minHeight: '64px',
-            height: '64px',
-            maxHeight: '64px'
-          }}
-        />
-        <div className={styles.clockIcon}>
-          <ClockO />
+      {/* 固定头部 */}
+      <div className={styles.fixedHeader}>
+        {/* 搜索栏 */}
+        <div className={styles.searchBar}>
+          <div className={styles.searchWrapper} onClick={handleSearchClick}>
+            <Search
+              placeholder="今天你想看些什么?"
+              className={styles.searchInput}
+              style={{
+                minHeight: '64px',
+                height: '64px',
+                maxHeight: '64px'
+              }}
+              readonly
+            />
+          </div>
+          <div className={styles.clockIcon}>
+            <ClockO />
+          </div>
         </div>
-      </div>
 
-      {/* 导航标签 */}
-      <TabSelector
-        tabs={navTabs}
-        activeTab={activeTab}
-        onTabChange={handleTabChange}
-      />
+        {/* 导航标签 */}
+        <TabSelector
+          tabs={navTabs}
+          activeTab={activeTab}
+          onTabChange={handleTabChange}
+        />
+      </div>
 
       {/* 内容区域 */}
       <div className={styles.content}>
@@ -118,8 +136,6 @@ const Home = () => {
           <>
             {/* 轮播图 */}
             <Banner banners={banner} />
-
-
 
             {/* 根据activeTab显示不同内容 */}
             {activeTab === 'featured' && (

@@ -15,9 +15,7 @@ const RankingCard = memo(({ item }) => {
           fit="cover"
           radius="8px"
         />
-        <div className={styles.rating}>
-          <span className={styles.ratingText}>{rating}</span>
-        </div>
+
       </div>
       
       <div className={styles.content}>

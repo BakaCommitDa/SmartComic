@@ -3,10 +3,21 @@
   background-color: #f7f7f7;
   min-height: 100vh;
   padding-bottom: 60px; /* 为底部导航留出空间 */
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
-.content {
-  padding: 16px;
+/* 固定头部区域 */
+.fixedHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  z-index: 1000;
+  padding-top: 28px;
+  padding-bottom: 0;
 }
 
 /* 日期选择器 */
@@ -15,6 +26,15 @@
   padding: 16px 0;
   border-bottom: 1px solid #f0f0f0;
   text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.dateSelector.scrolled {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.95);
 }
 
 .pageTitle {
@@ -82,10 +102,32 @@
   background-color: #00b894;
 }
 
+/* 内容区域样式 */
+.content {
+  padding: 16px;
+  margin-top: 180px; /* 为固定头部留出空间 */
+  flex: 1;
+  overflow-y: auto;
+  position: relative;
+}
+
+.content::before {
+  content: '';
+  position: fixed;
+  top: 180px;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: linear-gradient(to bottom, rgba(247, 247, 247, 1), rgba(247, 247, 247, 0));
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
 /* 排期网格 */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* 增加一倍最小宽度 */
+  grid-template-columns: repeat(3, 1fr); /* 恢复为三列布局 */
   gap: 12px;
   padding: 0;
 }
@@ -125,7 +167,7 @@
   position: relative;
 }
 
-.content {
+.scheduleContent {
   padding: 8px;
 }
 
@@ -219,10 +261,20 @@
   min-width: 80px;
 }
 
-/* 移动端适配 */
+/* 响应式设计 - 与首页完全一致 */
 @media (max-width: 768px) {
   .content {
     padding: 12px;
+    margin-top: 160px; /* 移动端减少头部空间 */
+  }
+  
+  .content::before {
+    top: 160px;
+  }
+  
+  .fixedHeader {
+    padding-top: 24px;
+    padding-bottom: 0;
   }
   
   .dateSelector {
@@ -252,7 +304,7 @@
   }
   
   .grid {
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); /* 增加一倍移动端最小宽度 */
+    grid-template-columns: repeat(3, 1fr); /* 移动端保持三列布局 */
     gap: 10px;
   }
   
@@ -262,10 +314,6 @@
   
   .imageContainer {
     aspect-ratio: 3/4; /* 移动端也使用宽高比 */
-  }
-  
-  .content {
-    padding: 6px;
   }
   
   .title {
@@ -303,6 +351,16 @@
 @media (max-width: 480px) {
   .content {
     padding: 10px;
+    margin-top: 140px; /* 小屏幕进一步减少头部空间 */
+  }
+  
+  .content::before {
+    top: 140px;
+  }
+  
+  .fixedHeader {
+    padding-top: 20px;
+    padding-bottom: 0;
   }
   
   .dateSelector {
@@ -332,7 +390,7 @@
   }
   
   .grid {
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); /* 增加一倍小屏幕最小宽度 */
+    grid-template-columns: repeat(3, 1fr); /* 小屏幕保持三列布局 */
     gap: 8px;
   }
   
@@ -344,7 +402,7 @@
     aspect-ratio: 3/4; /* 小屏幕也使用宽高比 */
   }
   
-  .content {
+  .scheduleContent {
     padding: 5px;
   }
   
@@ -383,6 +441,16 @@
 @media (max-width: 375px) {
   .content {
     padding: 8px;
+    margin-top: 120px; /* 超小屏幕最小头部空间 */
+  }
+  
+  .content::before {
+    top: 120px;
+  }
+  
+  .fixedHeader {
+    padding-top: 16px;
+    padding-bottom: 0;
   }
   
   .dateSelector {
@@ -412,7 +480,7 @@
   }
   
   .grid {
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* 增加一倍超小屏幕最小宽度 */
+    grid-template-columns: repeat(3, 1fr); /* 超小屏幕保持三列布局 */
     gap: 6px;
   }
   
@@ -424,7 +492,7 @@
     aspect-ratio: 3/4; /* 超小屏幕也使用宽高比 */
   }
   
-  .content {
+  .scheduleContent {
     padding: 4px;
   }
   

@@ -99,11 +99,7 @@ const AnimeCard = ({ item, showTags = false }) => {
           fit="cover"
           radius="8px"
         />
-        {showTags && item.tags && item.tags.length > 0 && (
-          <div className={styles.tag}>
-            {item.tags[0]}
-          </div>
-        )}
+
       </div>
       <div className={styles.content}>
         <div className={styles.title}>{item.title}</div>

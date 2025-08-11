@@ -1,6 +1,6 @@
 
 import './App.css'
-import {
+import React, {
   Suspense,
   lazy
 } from 'react';
@@ -12,6 +12,7 @@ import {
 import Loding from '@/components/Loding'
 import BlankLayout from '@/components/BlankLayout'
 import MainLayout from '@/components/MainLayout'
+import { useUserStore } from './store/userStore'
 
 
 const Home = lazy(() => import( '@/pages/Home'))
@@ -25,7 +26,15 @@ const Search = lazy(() => import( '@/pages/Search'))
 const Login = lazy(() => import( '@/pages/Login'))
 
 
+
 function App() {
+  const { initUserState } = useUserStore()
+
+  // 初始化用户状态
+  React.useEffect(() => {
+    initUserState()
+  }, [initUserState])
+
   return (
     <>
     <Suspense fallback={<Loding />}>
@@ -45,6 +54,7 @@ function App() {
           <Route path="/login" element={<Login />}/>
           <Route path="/search" element={<Search />}/>
           <Route path="/detail/:id" element={<Detail />} />
+
         </Route>
       </Routes>
     </Suspense>

@@ -1,6 +1,20 @@
 .container {
   background: #ffffff;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 固定头部区域 */
+.fixedHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  z-index: 1000;
+  padding-top: 28px;
+  padding-bottom: 0;
 }
 
 /* 搜索栏样式 */
@@ -8,9 +22,18 @@
   display: flex;
   align-items: center;
   gap: 24px;
-  margin-top: 28px;
   margin-bottom: 36px;
   padding: 0 20px;
+}
+
+.searchWrapper {
+  flex: 1;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.searchWrapper:hover {
+  transform: scale(1.02);
 }
 
 .searchInput {
@@ -96,6 +119,7 @@
 /* 内容区域样式 */
 .content {
   padding: 16px;
+  margin-top: 180px; /* 为固定头部留出空间 */
 }
 
 /* 区块样式 */
@@ -166,11 +190,16 @@
 @media (max-width: 768px) {
   .content {
     padding: 12px;
+    margin-top: 160px; /* 移动端减少头部空间 */
+  }
+  
+  .fixedHeader {
+    padding-top: 24px;
+    padding-bottom: 0;
   }
   
   .searchBar {
     gap: 20px;
-    margin-top: 24px;
     margin-bottom: 28px;
     padding: 0 16px;
   }
@@ -223,11 +252,16 @@
 @media (max-width: 480px) {
   .content {
     padding: 10px;
+    margin-top: 140px; /* 小屏幕进一步减少头部空间 */
+  }
+  
+  .fixedHeader {
+    padding-top: 20px;
+    padding-bottom: 0;
   }
   
   .searchBar {
     gap: 16px;
-    margin-top: 20px;
     margin-bottom: 24px;
     padding: 0 12px;
   }
@@ -280,11 +314,16 @@
 @media (max-width: 375px) {
   .content {
     padding: 8px;
+    margin-top: 120px; /* 超小屏幕最小头部空间 */
+  }
+  
+  .fixedHeader {
+    padding-top: 16px;
+    padding-bottom: 0;
   }
   
   .searchBar {
     gap: 14px;
-    margin-top: 18px;
     margin-bottom: 22px;
     padding: 0 10px;
   }

@@ -45,15 +45,18 @@ const Rankings = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.titleSection}>
-        <div className={styles.pageTitle}>排行榜</div>
+      {/* 固定头部 */}
+      <div className={styles.fixedHeader}>
+        <div className={styles.titleSection}>
+          <div className={styles.pageTitle}>排行榜</div>
+        </div>
+        
+        <TabSelector 
+          tabs={tabs}
+          activeTab={activeTab}
+          onTabChange={handleTabChange}
+        />
       </div>
-      
-      <TabSelector 
-        tabs={tabs}
-        activeTab={activeTab}
-        onTabChange={handleTabChange}
-      />
       
       <div className={styles.content}>
         <div className={styles.listContainer}>
