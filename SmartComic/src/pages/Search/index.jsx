@@ -112,8 +112,7 @@ const Search = () => {
         addSearchHistory,
         clearSearchHistory,
         removeSearchHistory,
-        isLoading,
-        error
+        isLoading
     } = useSearchStore();
 
     useEffect(() => {
@@ -200,10 +199,7 @@ const Search = () => {
                     />
                 </div>
                 
-                {/* 错误状态 - 使用CSS类控制显示/隐藏 */}
-                <div className={`${styles.emptyState} ${error ? '' : styles.hidden}`}>
-                    搜索出错: {error}
-                </div>
+
             </div>
         </div>
     );

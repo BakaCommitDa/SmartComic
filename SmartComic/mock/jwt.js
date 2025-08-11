@@ -64,8 +64,6 @@ export default [
     method: 'post',
     timeout: 2000, // 请求耗时
     response: (req, res) => {
-      console.log('收到登录请求:', req.body)
-      
       // 确保请求体是对象
       const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body
       
@@ -73,10 +71,6 @@ export default [
       const validPasswords = ['123456', 'password', 'passw ord', 'passwor d']
       
       if (body.username !== 'admin' || !validPasswords.includes(body.password)) {
-        console.log('登录验证失败:', {
-          received: { username: body.username, password: body.password },
-          expected: { username: 'admin', password: '123456 or password' }
-        })
         return {
           code: 1,
           msg: '登录失败',
@@ -93,8 +87,6 @@ export default [
       }, secret, {
         expiresIn: 60 * 60 * 24 * 7 // 7天
       })
-      
-      console.log('登录成功，生成token:', token)
 
       return {
         code: 0,
@@ -121,11 +113,9 @@ export default [
       }
 
       const token = authHeader.split(' ')[1]
-      console.log('验证token:', token)
       
       try {
         const decode = verifyJWT(token, secret)
-        console.log('解码结果:', decode)
         
         if (decode && decode.user) {
           return {

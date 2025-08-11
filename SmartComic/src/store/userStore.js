@@ -8,9 +8,7 @@ export const useUserStore = create((set, get) => ({
   // 登录
   login: async ({ username = "", password = "" }) => {
     try {
-      console.log('发送登录请求:', { username, password })
       const res = await doLogin({ username, password })
-      console.log('登录响应:', res)
       
       if (res.code === 0) {
         const { token, data: user } = res
@@ -48,7 +46,6 @@ export const useUserStore = create((set, get) => ({
 
     try {
       const res = await getUserInfo()
-      console.log('检查登录状态响应:', res)
       if (res.code === 0) {
         set({
           user: res.data,
@@ -56,7 +53,6 @@ export const useUserStore = create((set, get) => ({
         })
         return true
       } else {
-        console.log('Token验证失败，清除token')
         localStorage.removeItem('token')
         set({ user: null, isLogin: false })
         return false
