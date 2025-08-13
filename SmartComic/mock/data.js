@@ -792,42 +792,42 @@ export const homeData = {
       id: 1,
       title: '薫る花は凛と咲く',
       subtitle: '凛与薰交织的酸甜青春物语',
-      imageUrl: '/src/assets/1-carousel images.jpg',
+      imageUrl: '/assets/1-carousel images.jpg',
       description: '家里开蛋糕店的凛太郎,因为高大的体型与凶狠的外表,从他小时候周围的人都对他抱有严重的偏见。某天,帮忙顾店的凛太郎与现场唯一的...'
     },
     {
       id: 2,
       title: 'タコピーの原罪',
       subtitle: '黑暗版哆啦A梦,年度致郁作',
-      imageUrl: '/src/assets/2-carousel images.jpg',
+      imageUrl: '/assets/2-carousel images.jpg',
       description: '来自 HAPPY 星的外星人章鱼哔,目的是在地球散播 HAPPY。然而出师不利,一来到地球他就差点饿死,此时救了他一命的是平凡的少女小静...'
     },
     {
       id: 3,
       title: 'よふかしのうた',
       subtitle: '夜晚还没有结束',
-      imageUrl: '/src/assets/3-carousel images .jpg',
+      imageUrl: '/assets/3-carousel images .jpg',
       description: 'CALL OF THE NIGHT Season 2 - 夜晚还没有结束'
     },
     {
       id: 4,
       title: 'その着せ替え人形は恋をする Season 2',
       subtitle: '海梦与新菜的心动COS恋曲♡继续',
-      imageUrl: '/src/assets/4-carousel images.jpg',
+      imageUrl: '/assets/4-carousel images.jpg',
       description: '某一天的相遇为开端,通过Cosplay加深交流的喜多川海梦与五条新菜。还有好多想尝试的Cosplay,想制作的服装。'
     },
     {
       id: 5,
       title: '青春ブタ野郎はサンタクロースの夢を見ない',
       subtitle: '再遇青春期综合征,大学篇开始',
-      imageUrl: '/src/assets/5-carousel images.jpg',
+      imageUrl: '/assets/5-carousel images.jpg',
       description: '青春期综合征再次出现，大学篇的故事即将开始'
     },
     {
       id: 6,
       title: 'ぐらんぶる 2',
       subtitle: '向合规的另一侧进发',
-      imageUrl: '/src/assets/6-carousel images.jpg',
+      imageUrl: '/assets/6-carousel images.jpg',
       description: '以上大学为契机,北原伊织开始在沿海城镇居住。他在那里遇见的是美貌出众的女孩、以及爱喝酒与水肺潜水的强壮男人们。'
     }
   ],
@@ -1520,3 +1520,49 @@ export const homeData = {
     { id: 'classic', name: '经典番剧' }
   ]
 }
+
+// 导出单独的数据模块，供API使用
+export const bannerData = homeData.banner
+export const hotNewReleasesData = homeData.hotNewReleases
+export const japaneseAnimeData = homeData.japaneseAnime
+export const navTabsData = homeData.navTabs
+
+// 搜索相关数据
+export const hotSearchList = [
+  { id: 1, name: '碧蓝之海 第二季', hot: '99.9万' },
+  { id: 2, name: '章鱼哔的原罪', hot: '88.5万' },
+  { id: 3, name: '更衣人偶坠入爱河 第二季', hot: '76.2万' },
+  { id: 4, name: '薰香花朵凛然绽放', hot: '65.8万' },
+  { id: 5, name: '我们不可能成为恋人! 绝对不行。', hot: '54.3万' },
+  { id: 6, name: '赛马娘 芦毛灰姑娘', hot: '43.1万' },
+  { id: 7, name: '夏日口袋 Summer Pockets', hot: '32.7万' },
+  { id: 8, name: '男女之间的友情存在吗？（不，不存在!!）', hot: '21.4万' },
+  { id: 9, name: 'Lycoris Recoil 莉可丽丝：友谊是时间的窃贼', hot: '18.9万' },
+  { id: 10, name: '进击的巨人最终季 完结篇后篇', hot: '15.6万' }
+]
+
+export const searchSuggestionsData = [
+  '碧蓝之海',
+  '章鱼哔的原罪',
+  '更衣人偶坠入爱河',
+  '薰香花朵凛然绽放',
+  '我们不可能成为恋人',
+  '赛马娘',
+  '夏日口袋',
+  '男女之间的友情存在吗',
+  'Lycoris Recoil',
+  '进击的巨人',
+  '咒术回战',
+  '鬼灭之刃',
+  '火影忍者',
+  '海贼王',
+  '银魂',
+  '死神',
+  '家庭教师',
+  '网球王子',
+  '黑子的篮球',
+  '灌篮高手',
+  '犬夜叉',
+  '新世纪福音战士',
+  '攻壳机动队'
+]

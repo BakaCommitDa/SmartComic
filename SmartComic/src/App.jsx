@@ -13,7 +13,7 @@ import Loding from '@/components/Loding'
 import BlankLayout from '@/components/BlankLayout'
 import MainLayout from '@/components/MainLayout'
 import { useUserStore } from './store/userStore'
-
+import { preloadCommonImages } from './utils/imageCache'
 
 const Home = lazy(() => import( '@/pages/Home'))
 const Schedule = lazy(() => import( '@/pages/Schedule'))
@@ -25,8 +25,6 @@ const Detail = lazy(() => import( '@/pages/Detail'))
 const Search = lazy(() => import( '@/pages/Search'))
 const Login = lazy(() => import( '@/pages/Login'))
 
-
-
 function App() {
   const { initUserState } = useUserStore()
 
@@ -34,6 +32,11 @@ function App() {
   React.useEffect(() => {
     initUserState()
   }, [initUserState])
+
+  // 预加载常用图片
+  React.useEffect(() => {
+    preloadCommonImages()
+  }, [])
 
   return (
     <>
