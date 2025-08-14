@@ -1,44 +1,20 @@
 import React, { useState, useEffect, useRef } from 'react'
 import styles from './lazyImage.module.css'
 
-// 图片代理服务列表（按优先级排序）
-const PROXY_SERVICES = [
-  '/api/proxy-image?url=', // 本地API代理（优先）
-  'https://images.weserv.nl/?url=',
-  'https://cors-anywhere.herokuapp.com/',
-  'https://api.allorigins.win/raw?url='
-]
-
-// 获取代理后的图片URL
-const getProxiedImageUrl = (originalUrl) => {
-  // 如果已经是代理URL，直接返回
-  if (originalUrl.includes('images.weserv.nl') || 
-      originalUrl.includes('cors-anywhere') ||
-      originalUrl.includes('allorigins.win') ||
-      originalUrl.includes('/api/proxy-image')) {
+// 获取图片URL，如果是外部图片则添加代理
+const getImageUrl = (originalUrl) => {
+  // 如果是本地图片，直接返回
+  if (originalUrl.startsWith('/assets/') || originalUrl.startsWith('./assets/')) {
     return originalUrl
   }
   
-  // 使用第一个代理服务（本地API）
-  return PROXY_SERVICES[0] + encodeURIComponent(originalUrl)
-}
-
-// 图片加载错误处理
-const handleImageError = (originalUrl, setImageUrl, retryCount = 0) => {
-  if (retryCount >= PROXY_SERVICES.length - 1) {
-    // 所有代理都失败了，使用本地占位图
-    return '/assets/image.png'
+  // 如果已经是代理URL，直接返回
+  if (originalUrl.includes('images.weserv.nl')) {
+    return originalUrl
   }
   
-  // 尝试下一个代理服务
-  const nextProxy = PROXY_SERVICES[retryCount + 1]
-  if (nextProxy) {
-    const newUrl = nextProxy + encodeURIComponent(originalUrl)
-    setImageUrl(newUrl)
-    return newUrl
-  }
-  
-  return '/assets/image.png'
+  // 外部图片使用代理
+  return `https://images.weserv.nl/?url=${encodeURIComponent(originalUrl)}`
 }
 
 const LazyImage = ({ 
@@ -51,11 +27,10 @@ const LazyImage = ({
   className = '',
   ...props 
 }) => {
-  const [imageUrl, setImageUrl] = useState('')
   const [isLoaded, setIsLoaded] = useState(false)
   const [isInView, setIsInView] = useState(false)
   const [hasError, setHasError] = useState(false)
-  const [retryCount, setRetryCount] = useState(0)
+  const [imageUrl, setImageUrl] = useState('')
   const imgRef = useRef(null)
 
   useEffect(() => {
@@ -87,13 +62,7 @@ const LazyImage = ({
 
   useEffect(() => {
     if (isInView && src) {
-      // 检查是否是本地图片
-      if (src.startsWith('/assets/') || src.startsWith('./assets/')) {
-        setImageUrl(src)
-      } else {
-        // 外部图片使用代理
-        setImageUrl(getProxiedImageUrl(src))
-      }
+      setImageUrl(getImageUrl(src))
     }
   }, [isInView, src])
 
@@ -103,16 +72,8 @@ const LazyImage = ({
   }
 
   const handleError = () => {
-    if (retryCount < PROXY_SERVICES.length - 1) {
-      // 尝试下一个代理
-      setRetryCount(prev => prev + 1)
-      const newUrl = handleImageError(src, setImageUrl, retryCount + 1)
-      setImageUrl(newUrl)
-    } else {
-      // 所有代理都失败，使用占位图
-      setHasError(true)
-      setImageUrl('/assets/image.png')
-    }
+    setHasError(true)
+    // 保持加载中状态，不显示占位图
   }
 
   return (
@@ -141,7 +102,7 @@ const LazyImage = ({
       )}
       
       {isInView && hasError && (
-        <div className={styles.errorPlaceholder}>加载失败</div>
+        <div className={styles.placeholder}>加载中...</div>
       )}
       
       {isInView && imageUrl && (
